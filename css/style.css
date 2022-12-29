@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  font-size: clamp(0.75rem, 0.6464rem + 0.5525vw, 1rem);
+}
+
+:root {
+  --black: #121212;
+  --white: #FFFFFF;
+  --blue: #0096FF;
+}
+
+nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15%;
+  width: 100%;
+  height: 75px;
+  z-index: 1000;
+  line-height: 75px;
+  background: var(--white);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+nav .navbar-brand img {
+  width: 5rem;
+}
+nav .navbar-toggler i {
+  display: none;
+}
+nav .nav-list {
+  display: flex;
+}
+nav .nav-list .nav-item a {
+  cursor: pointer;
+  height: 100%;
+  color: var(--black);
+  text-transform: uppercase;
+  padding: 0 20px;
+  font-weight: 500;
+  transition: 0.4s;
+}
+nav .nav-list .nav-item a.active, nav .nav-list .nav-item a:hover {
+  color: var(--blue);
+}
+
+input {
+  display: none;
+}
+
+@media (max-width: 991px) and (min-width: 850px) {
+  input:checked ~ nav .nav-list {
+    transform: translateY(0);
+    transition: 0.1s;
+  }
+  nav {
+    padding: 0 2rem;
+  }
+  nav .nav-list {
+    z-index: -1000;
+  }
+}
+@media (max-width: 849px) {
+  input:checked ~ nav .nav-list {
+    transform: translateY(20.5%);
+    transition: 0.1s;
+  }
+  nav .nav-list {
+    display: grid;
+    position: absolute;
+    background: var(--blue);
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    z-index: -1000;
+    transition: 0.1s;
+  }
+  nav .nav-list .nav-item {
+    padding-left: 35px;
+  }
+  nav .nav-list .nav-item a {
+    color: var(--white);
+  }
+  nav .nav-list .nav-item a.active {
+    color: var(--black);
+  }
+  nav .navbar-toggler {
+    display: grid;
+    height: min-content;
+    margin: 25px -10px 0 0;
+    cursor: pointer;
+  }
+  nav .navbar-toggler i {
+    display: block;
+    margin: 0.2rem 0;
+  }
+}
